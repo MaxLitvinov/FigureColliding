@@ -1,0 +1,9 @@
+R:\NURE\Practice\FigureColliding\FigureColliding\bin\Debug\FigureColliding.exe.config
+R:\NURE\Practice\FigureColliding\FigureColliding\bin\Debug\FigureColliding.exe
+R:\NURE\Practice\FigureColliding\FigureColliding\bin\Debug\FigureColliding.pdb
+R:\NURE\Practice\FigureColliding\FigureColliding\obj\Debug\FigureColliding.MainForm.resources
+R:\NURE\Practice\FigureColliding\FigureColliding\obj\Debug\FigureColliding.Properties.Resources.resources
+R:\NURE\Practice\FigureColliding\FigureColliding\obj\Debug\FigureColliding.csproj.GenerateResource.Cache
+R:\NURE\Practice\FigureColliding\FigureColliding\obj\Debug\FigureColliding.exe
+R:\NURE\Practice\FigureColliding\FigureColliding\obj\Debug\FigureColliding.pdb
+R:\NURE\Practice\FigureColliding\FigureColliding\obj\Debug\FigureColliding.csprojResolveAssemblyReference.cache
