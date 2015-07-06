@@ -20,34 +20,66 @@ namespace FigureColliding
         {
             InitializeComponent();
         }
-
         private void circleButton_Click(object sender, EventArgs e)
         {
-            int radius;
+            int diameter;
             int x;
             int y;
             Figure circle; 
             while (true)
             {
-                radius = random.Next(25, 100);
-                x = random.Next(0, pictureBox1.Width);
-                y = random.Next(0, pictureBox1.Height);
-                circle = new Circle(x, y, radius);
+                diameter = random.Next(25, 150);
+                x = random.Next(1, pictureBox1.Width);
+                y = random.Next(1, pictureBox1.Height);
+                circle = new Circle(x, y, diameter);
                 if (circle.IsInRegion(pictureBox1.Width, pictureBox1.Height))
                     break;
             }
+            circle.SetStep(random.Next(1, 5), random.Next(1, 5));
             figureList.Add(circle);
             pictureBox1.Invalidate();
         }
-
+        
         private void triangleButton_Click(object sender, EventArgs e)
         {
-
+            int width;
+            int height;
+            int x;
+            int y;
+            Figure triangle;
+            while (true)
+            {
+                width = random.Next(50, 100);
+                height = random.Next(50, 100);
+                x = random.Next(1, pictureBox1.Width);
+                y = random.Next(1, pictureBox1.Height);
+                triangle = new Triangle(x, y, width, height);
+                if (triangle.IsInRegion(pictureBox1.Width, pictureBox1.Height))
+                    break;
+            }
+            triangle.SetStep(random.Next(1, 5), random.Next(1, 5));
+            figureList.Add(triangle);
+            pictureBox1.Invalidate();
         }
 
         private void squareButton_Click(object sender, EventArgs e)
         {
-            Figure rectangle = new FigureColliding.Classes.Rectangle(10, 10, 100, 100);
+            int width;
+            int height;
+            int x;
+            int y;
+            Figure rectangle;
+            while (true)
+            {
+                width = random.Next(50, 100);
+                height = random.Next(50, 100);
+                x = random.Next(1, pictureBox1.Width);
+                y = random.Next(1, pictureBox1.Height);
+                rectangle = new FigureColliding.Classes.Rectangle(x, y, width, height);
+                if (rectangle.IsInRegion(pictureBox1.Width, pictureBox1.Height))
+                    break;
+            }
+            rectangle.SetStep(random.Next(1, 5), random.Next(1, 5));
             figureList.Add(rectangle);
             pictureBox1.Invalidate();
         }

@@ -13,17 +13,11 @@ namespace FigureColliding.Classes
         private int x;
         private int y;
 
-        private int dx = 5;
-        private int dy = 5;
+        private int dx;
+        private int dy;
 
         private int width;
         private int height;
-
-        public void setCenter(int x, int y)
-        {
-            this.x = x;
-            this.y = y;
-        }
 
         public int X
         {
@@ -60,13 +54,55 @@ namespace FigureColliding.Classes
             get { return this.height; }
             set { this.height = value; }
         }
-              
+
+        public void SetCenter(int x, int y)
+        {
+            this.x = x;
+            this.y = y;
+        }
+
+        public bool IsInRegion(int width, int height)
+        {
+            if ((X + Width) > width || (Y + Height) > height)
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+        }
+
+        public void SetStep(int dx, int dy)
+        {
+            Dx = dx;
+            Dy = dy;
+        }
+
         public abstract void Draw(Graphics e);
 
-        public abstract void Move(Graphics e, PictureBox p);
+        public void Move(Graphics e, PictureBox p)
+        {
+            int w = Width;
+            int h = Height;
+            int x = X;
+            int y = Y;
+            int dx = Dx;
+            int dy = Dy;
 
-        public abstract bool IsInRegion(int width, int height);
+            if (x + w >= p.Width || x + w <= w)
+            {
+                dx *= -1;
+            }
 
-        public abstract void SetStep(int dx, int dy);
+            if (y + h >= p.Height || y + h <= h)
+            {
+                dy *= -1;
+            }
+
+            SetCenter(x + dx, y + dy);
+            SetStep(dx, dy);
+            Draw(e);
+        }
     }
 }
