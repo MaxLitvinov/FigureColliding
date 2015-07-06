@@ -30,8 +30,10 @@
         {
             this.components = new System.ComponentModel.Container();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.minusButton = new System.Windows.Forms.Button();
+            this.plusButton = new System.Windows.Forms.Button();
             this.infoButton = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
+            this.moveButton = new System.Windows.Forms.Button();
             this.squareButton = new System.Windows.Forms.Button();
             this.triangleButton = new System.Windows.Forms.Button();
             this.circleButton = new System.Windows.Forms.Button();
@@ -40,10 +42,15 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.openToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.saveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -51,15 +58,37 @@
             this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Controls.Add(this.minusButton);
+            this.panel1.Controls.Add(this.plusButton);
             this.panel1.Controls.Add(this.infoButton);
-            this.panel1.Controls.Add(this.button4);
+            this.panel1.Controls.Add(this.moveButton);
             this.panel1.Controls.Add(this.squareButton);
             this.panel1.Controls.Add(this.triangleButton);
             this.panel1.Controls.Add(this.circleButton);
-            this.panel1.Location = new System.Drawing.Point(12, 12);
+            this.panel1.Location = new System.Drawing.Point(11, 29);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(726, 40);
             this.panel1.TabIndex = 0;
+            // 
+            // minusButton
+            // 
+            this.minusButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.minusButton.Location = new System.Drawing.Point(557, 4);
+            this.minusButton.Name = "minusButton";
+            this.minusButton.Size = new System.Drawing.Size(41, 31);
+            this.minusButton.TabIndex = 9;
+            this.minusButton.Text = "-";
+            this.minusButton.UseVisualStyleBackColor = true;
+            // 
+            // plusButton
+            // 
+            this.plusButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.plusButton.Location = new System.Drawing.Point(510, 4);
+            this.plusButton.Name = "plusButton";
+            this.plusButton.Size = new System.Drawing.Size(41, 31);
+            this.plusButton.TabIndex = 8;
+            this.plusButton.Text = "+";
+            this.plusButton.UseVisualStyleBackColor = true;
             // 
             // infoButton
             // 
@@ -73,16 +102,16 @@
             this.infoButton.UseVisualStyleBackColor = true;
             this.infoButton.Click += new System.EventHandler(this.infoButton_Click);
             // 
-            // button4
+            // moveButton
             // 
-            this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button4.Location = new System.Drawing.Point(369, 3);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(81, 31);
-            this.button4.TabIndex = 6;
-            this.button4.Text = "Start";
-            this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
+            this.moveButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.moveButton.Location = new System.Drawing.Point(369, 3);
+            this.moveButton.Name = "moveButton";
+            this.moveButton.Size = new System.Drawing.Size(81, 31);
+            this.moveButton.TabIndex = 6;
+            this.moveButton.Text = "Start";
+            this.moveButton.UseVisualStyleBackColor = true;
+            this.moveButton.Click += new System.EventHandler(this.moveButton_Click);
             // 
             // squareButton
             // 
@@ -123,9 +152,9 @@
             | System.Windows.Forms.AnchorStyles.Left)));
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel2.Controls.Add(this.treeView1);
-            this.panel2.Location = new System.Drawing.Point(12, 58);
+            this.panel2.Location = new System.Drawing.Point(12, 74);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(156, 293);
+            this.panel2.Size = new System.Drawing.Size(156, 361);
             this.panel2.TabIndex = 1;
             // 
             // treeView1
@@ -133,8 +162,9 @@
             this.treeView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.treeView1.Location = new System.Drawing.Point(0, 0);
             this.treeView1.Name = "treeView1";
-            this.treeView1.Size = new System.Drawing.Size(154, 291);
+            this.treeView1.Size = new System.Drawing.Size(154, 359);
             this.treeView1.TabIndex = 0;
+            this.treeView1.NodeMouseDoubleClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.treeView1_NodeMouseDoubleClick);
             // 
             // panel3
             // 
@@ -143,9 +173,9 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel3.Controls.Add(this.pictureBox1);
-            this.panel3.Location = new System.Drawing.Point(174, 58);
+            this.panel3.Location = new System.Drawing.Point(174, 74);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(564, 293);
+            this.panel3.Size = new System.Drawing.Size(564, 360);
             this.panel3.TabIndex = 2;
             // 
             // pictureBox1
@@ -153,7 +183,7 @@
             this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pictureBox1.Location = new System.Drawing.Point(0, 0);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(562, 291);
+            this.pictureBox1.Size = new System.Drawing.Size(562, 358);
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             this.pictureBox1.Paint += new System.Windows.Forms.PaintEventHandler(this.pictureBox1_Paint);
@@ -163,23 +193,62 @@
             this.timer1.Interval = 30;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
+            // menuStrip1
+            // 
+            this.menuStrip1.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.fileToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(750, 27);
+            this.menuStrip1.TabIndex = 3;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
+            // fileToolStripMenuItem
+            // 
+            this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.openToolStripMenuItem,
+            this.saveToolStripMenuItem});
+            this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
+            this.fileToolStripMenuItem.Size = new System.Drawing.Size(41, 23);
+            this.fileToolStripMenuItem.Text = "File";
+            // 
+            // openToolStripMenuItem
+            // 
+            this.openToolStripMenuItem.Name = "openToolStripMenuItem";
+            this.openToolStripMenuItem.Size = new System.Drawing.Size(112, 24);
+            this.openToolStripMenuItem.Text = "Open";
+            this.openToolStripMenuItem.Click += new System.EventHandler(this.openToolStripMenuItem_Click);
+            // 
+            // saveToolStripMenuItem
+            // 
+            this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
+            this.saveToolStripMenuItem.Size = new System.Drawing.Size(112, 24);
+            this.saveToolStripMenuItem.Text = "Save";
+            this.saveToolStripMenuItem.Click += new System.EventHandler(this.saveToolStripMenuItem_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(750, 363);
+            this.ClientSize = new System.Drawing.Size(750, 447);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
+            this.Controls.Add(this.menuStrip1);
+            this.MainMenuStrip = this.menuStrip1;
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Figure colliding";
-            this.Load += new System.EventHandler(this.MainForm_Load);
+            this.Load += new System.EventHandler(this.MainForm_Load_1);
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -189,13 +258,19 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Button infoButton;
-        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button moveButton;
         private System.Windows.Forms.Button squareButton;
         private System.Windows.Forms.Button triangleButton;
         private System.Windows.Forms.Button circleButton;
         private System.Windows.Forms.TreeView treeView1;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Button minusButton;
+        private System.Windows.Forms.Button plusButton;
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem openToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem saveToolStripMenuItem;
     }
 }
 

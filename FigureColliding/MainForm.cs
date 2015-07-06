@@ -37,6 +37,7 @@ namespace FigureColliding
             }
             circle.SetStep(random.Next(1, 5), random.Next(1, 5));
             figureList.Add(circle);
+            treeView1.Nodes.Add(circle.GetType().Name.ToString() + " " + circle.X + "; " + circle.Y);
             pictureBox1.Invalidate();
         }
         
@@ -59,6 +60,7 @@ namespace FigureColliding
             }
             triangle.SetStep(random.Next(1, 5), random.Next(1, 5));
             figureList.Add(triangle);
+            treeView1.Nodes.Add(triangle.GetType().Name.ToString() + " " + triangle.X + "; " + triangle.Y);
             pictureBox1.Invalidate();
         }
 
@@ -81,12 +83,27 @@ namespace FigureColliding
             }
             rectangle.SetStep(random.Next(1, 5), random.Next(1, 5));
             figureList.Add(rectangle);
+            treeView1.Nodes.Add(rectangle.GetType().Name.ToString() + " " + rectangle.X + "; " + rectangle.Y);
             pictureBox1.Invalidate();
         }
 
-        private void button4_Click(object sender, EventArgs e)
+        private void moveButton_Click(object sender, EventArgs e)
         {
-            timer1.Enabled = true;
+            if (moveButton.Text == "Start")
+            {
+                moveButton.Text = "Stop";
+                timer1.Enabled = true;
+            }
+            else
+            {
+                moveButton.Text = "Start";
+                timer1.Enabled = false;
+                treeView1.Nodes.Clear();
+                foreach (Figure figure in figureList)
+                {
+                    treeView1.Nodes.Add(figure.GetType().Name.ToString() + " " + figure.X + "; " + figure.Y);
+                }
+            }
         }
 
         private void infoButton_Click(object sender, EventArgs e)
@@ -127,6 +144,41 @@ namespace FigureColliding
         {
             figureList = new List<Figure>();
             random = new Random();
+        }
+
+        private void openToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void saveToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void MainForm_Load_1(object sender, EventArgs e)
+        {
+            figureList = new List<Figure>();
+            random = new Random();
+        }
+
+        private void treeView1_NodeMouseDoubleClick(object sender, TreeNodeMouseClickEventArgs e)
+        {
+            string s = e.Node.Text;
+            string x = "";
+            string y = "";
+            foreach (var str in s)
+            {
+                if (str.Equals(Char.IsNumber(str)))
+                {
+                    x += str.ToString();
+                }
+                if (str.Equals(";"))
+                {
+                    x += str;
+                }
+            }
+            MessageBox.Show(x);
         }
     }
 }
